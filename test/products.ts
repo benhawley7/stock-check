@@ -35,6 +35,8 @@ test("products: test listProducts success", async assert => {
         }
     ];
 
+    // The read JSON file function allows us to easily return our mocked
+    // data by stubbing for different path arugments
     const readJSONStub = sinon.stub(tools, "readJSONFile");
     readJSONStub.withArgs(products.stockPath).resolves(stock);
 
@@ -56,6 +58,7 @@ test("products: test listProducts failure (fails to read JSON)", async assert =>
         await products.listProducts();
         assert.fail("listProducts should throw if readJSONFile fails");
     } catch(e) {
+        // Ensure that the error is handled and the message is formatted correctly
         assert.equals(
             e.message,
             "Failed to read stock file. Reason: File not found",

@@ -59,6 +59,7 @@ test("transactions: test listTransactions failure (fails to read JSON)", async a
         await transactions.listTransactions();
         assert.fail("listTransactions should throw if readJSONFile fails");
     } catch(e) {
+        // Ensure that the error is handled and the message is formatted correctly
         assert.equals(
             e.message,
             "Failed to read transactions file. Reason: File not found",
@@ -113,6 +114,49 @@ test("transactions: test listTransactionsForSKU success", async assert => {
     assert.equals(result.length, 3, "should find 3 matching transactions");
     const allSkusCorrect = result.every(record => record.sku === skuToFind);
     assert.true(allSkusCorrect, "only tranasactions for the supplied sku are returned");
+
+    readJSONStub.restore();
+    assert.end();
+});
+
+test("transactions: test listTransactionsForSKU success (no transactions for sku)", async assert => {
+    assert.plan(1);
+
+    const transactionRecords: Transaction[] = [
+        {
+            sku: "CLQ274846/07/46",
+            qty: 100,
+            type: TransactionType.order
+        },
+        {
+            sku: "CLQ274846/07/46",
+            qty: 40,
+            type: TransactionType.order
+        },
+        {
+            sku: "SXB930757/87/87",
+            qty: 3552,
+            type: TransactionType.refund
+        },
+        {
+            sku: "CLQ274846/07/46",
+            qty: 13,
+            type: TransactionType.order
+        },
+        {
+            sku: "CLQ274846/07/46",
+            qty: 20,
+            type: TransactionType.refund
+        },
+    ];
+
+    const readJSONStub = sinon.stub(tools, "readJSONFile");
+    readJSONStub.withArgs(transactions.transactionsPath).resolves(transactionRecords);
+
+    const skuToFind = "SKU-TO-FIND";
+    const result = await transactions.listTransactionsForSKU(skuToFind);
+
+    assert.equals(result.length, 0, "should return no matching transactions");
 
     readJSONStub.restore();
     assert.end();
