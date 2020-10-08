@@ -10,8 +10,9 @@ import {readJSONFile} from "./common/tools";
 
 /**
  * Path to the transactions.json file
+ * In a final project, I would have this path defined in a config file
  */
-export const transactionsPath: string = path.join(__dirname, "../../../", "data", "transactions.json");
+export const transactionsPath: string = path.join(__dirname, "../../", "data", "transactions.json");
 
 /**
  * List all transactions

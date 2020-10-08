@@ -13,7 +13,7 @@ import {listTransactionsForSKU} from "./transactions";
  * Path to the stocks.json file
  * In a final project, I would have this path defined in a config file
  */
-export const stockPath: string = path.join(__dirname, "../../../", "data", "stock.json");
+export const stockPath: string = path.join(__dirname, "../../", "data", "stock.json");
 
 /**
  * List all sku products
