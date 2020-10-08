@@ -40,7 +40,7 @@ test("products: test listProducts success", async assert => {
 
     const skus = await products.listProducts();
 
-    assert.deepEquals(stock, skus, "listProducts returns all products from file")
+    assert.deepEquals(stock, skus, "listProducts returns all products from file");
 
     readJSONStub.restore();
     assert.end();

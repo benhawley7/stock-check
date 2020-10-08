@@ -43,7 +43,7 @@ test("transactions: testing listTransactions success", async assert => {
 
     const result = await transactions.listTransactions();
 
-    assert.deepEquals(transactionRecords, result, "listTransactions returns all transactions from file")
+    assert.deepEquals(transactionRecords, result, "listTransactions returns all transactions from file");
 
     readJSONStub.restore();
     assert.end();

@@ -21,7 +21,7 @@ export const stockPath: string = path.join(__dirname, "../../../", "data", "stoc
  */
 export async function listProducts(): Promise<Product[]> {
     const stock = await readJSONFile(stockPath).catch(e => {
-        throw new Error(`Failed to read stock file. Reason: ${e.message}`)
+        throw new Error(`Failed to read stock file. Reason: ${e.message}`);
     });
     return stock;
 }
@@ -56,7 +56,7 @@ export async function calculateCurrentStockLevel(sku: string): Promise<{sku: str
         return {
             sku,
             qty: product.stock
-        }
+        };
     }
 
     // Figure out whether each transaction quantity should add or subscract from the stock
@@ -77,5 +77,5 @@ export async function calculateCurrentStockLevel(sku: string): Promise<{sku: str
     return {
         sku,
         qty: currentStock
-    }
+    };
 }

@@ -18,7 +18,7 @@ export const transactionsPath: string = path.join(__dirname, "../../../", "data"
  */
 export async function listTransactions(): Promise<Transaction[]> {
     const transactions = await readJSONFile(transactionsPath).catch(e => {
-        throw new Error(`Failed to read transactions file. Reason: ${e.message}`)
+        throw new Error(`Failed to read transactions file. Reason: ${e.message}`);
     });
     return transactions;
 }

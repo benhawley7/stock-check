@@ -24,7 +24,7 @@ export async function readJSONFile(path: string): Promise<any> {
 
 /**
  * Use readline to take terminal input and then close the session
- * @param prompt prompt for user
+ * @param prompt prompt text for user
  * @returns input
  */
 export function readUserInput(prompt: string): Promise<string> {
@@ -32,7 +32,7 @@ export function readUserInput(prompt: string): Promise<string> {
         const rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout
-        })
+        });
 
         rl.question(prompt, (input) => {
             rl.close();

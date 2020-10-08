@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npx --no-install tsc",
     "start": "npm run build && node dist/src/app.js",
-    "test": "npm run build && npx --no-install tape dist/test/index.js"
+    "test": "npm run build && npx --no-install tape dist/test/index.js",
+    "lint": "eslint . --ext .ts"
   },
   "author": "Ben Hawley",
   "license": "UNLICENSED",
@@ -14,6 +15,9 @@
     "@types/node": "^14.11.1",
     "@types/sinon": "^9.0.8",
     "@types/tape": "^4.13.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "eslint": "^7.10.0",
     "sinon": "^9.2.0",
     "tape": "^5.0.1",
     "typescript": "^4.0.3"
