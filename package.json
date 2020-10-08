@@ -1,8 +1,13 @@
 {
   "name": "stock-check",
   "version": "0.0.0",
-  "description": "Return the current stock levels from stock and transaction files",
+  "description": "Return the current stock quantity levels from stock and transaction files",
   "main": "dist/app.js",
+  "bugs": "https://github.com/benhawley7/stock-check/issues",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/benhawley7/stock-check.git"
+  },
   "scripts": {
     "build": "npx --no-install tsc",
     "start": "npm run build && node dist/src/app.js",

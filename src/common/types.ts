@@ -1,5 +1,5 @@
 /**
- * @file Exports common types, interfaces and constants used across the project
+ * @file Exports common types, interfaces and enums used across the project
  * @package stock-check
  * @author Ben Hawley
  */
@@ -14,7 +14,7 @@ export enum TransactionType {
 }
 
 /**
- * Defines structure for a transaction on a SKU product for an order or refund
+ * Defines structure for a order/refund transaction on a SKU product
  * @interface
  */
 export interface Transaction {
