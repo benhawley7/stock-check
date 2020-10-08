@@ -66,7 +66,7 @@ export async function calculateCurrentStockLevel(sku: string): Promise<{sku: str
         };
     }
 
-    // Figure out whether each transaction quantity should add or subscract from the stock
+    // Figure out whether each transaction quantity should add or subtract from the stock
     const quantities: number[] = transactions.map(transaction => {
         switch (transaction.type) {
             case TransactionType.order:

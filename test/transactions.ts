@@ -113,7 +113,7 @@ test("transactions: test listTransactionsForSKU success", async assert => {
 
     assert.equals(result.length, 3, "should find 3 matching transactions");
     const allSkusCorrect = result.every(record => record.sku === skuToFind);
-    assert.true(allSkusCorrect, "only tranasactions for the supplied sku are returned");
+    assert.true(allSkusCorrect, "only transactions for the supplied sku are returned");
 
     readJSONStub.restore();
     assert.end();

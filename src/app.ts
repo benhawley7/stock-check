@@ -11,7 +11,7 @@ import {calculateCurrentStockLevel} from "./products";
  * Read SKU ID and calculate stock level for the corresponding product
  */
 export default async function getCurrentStockLevel(): Promise<void> {
-    // Prompt the user to input a SKU code and attempt to calculate the its stock level
+    // Prompt the user to input a SKU code and attempt to calculate the stock level
     const sku = await readUserInput("Please enter a SKU ID: ");
     const currentStock = await calculateCurrentStockLevel(sku);
 
